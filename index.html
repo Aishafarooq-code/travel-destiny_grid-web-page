@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Destiny</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f8fafc;
+            color: #334155;
+            line-height: 1.6;
+        }
+
+        header {
+            background: #0f3d56;
+            color: white;
+            padding: 20px 7%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header h1 {
+            font-size: 24px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+        }
+
+        section {
+            padding: 55px 7%;
+        }
+
+        .hero {
+            min-height: 420px;
+            display: grid;
+            place-items: center;
+            text-align: center;
+            color: white;
+            background: linear-gradient(#0f3d5688, #0f3d5688),
+                url("https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=1400&q=80") center/cover;
+        }
+
+        .hero h2 {
+            font-size: 44px;
+        }
+
+        .hero p {
+            max-width: 600px;
+            margin: 10px auto 25px;
+        }
+
+        .button,
+        button {
+            display: inline-block;
+            background: #e6a15c;
+            color: #0f3d56;
+            border: 0;
+            padding: 11px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        section > h2 {
+            text-align: center;
+            color: #0f3d56;
+            margin-bottom: 8px;
+        }
+
+        .intro {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .grid {
+            display: grid;
+            gap: 20px;
+        }
+
+        .destinations {
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        .card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 3px 12px #0f3d5615;
+        }
+
+        .card img {
+            width: 100%;
+            height: 190px;
+            object-fit: cover;
+        }
+
+        .card h3,
+        .card p,
+        .card span {
+            display: block;
+            margin-left: 18px;
+            margin-right: 18px;
+        }
+
+        .card h3 {
+            color: #0f3d56;
+            margin-top: 14px;
+        }
+
+        .card p {
+            color: #e6a15c;
+            font-weight: bold;
+        }
+
+        .card span {
+            margin-bottom: 18px;
+        }
+
+        .light {
+            background: #eaf4f7;
+        }
+
+        .experiences {
+            grid-template-columns: repeat(2, 1fr);
+            max-width: 850px;
+            margin: 25px auto 0;
+        }
+
+        .experience,
+        .essentials div {
+            background: white;
+            padding: 22px;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 3px 10px #0f3d5612;
+        }
+
+        .experience h3 {
+            color: #0f3d56;
+        }
+
+        .essentials {
+            grid-template-columns: repeat(3, 1fr);
+            margin-top: 25px;
+        }
+
+        .essentials div {
+            color: #0f3d56;
+            font-weight: bold;
+        }
+
+        .tip-grid {
+            max-width: 850px;
+            margin: 25px auto 0;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+
+        .tip-grid p {
+            background: white;
+            padding: 18px;
+            border-left: 4px solid #e6a15c;
+            border-radius: 5px;
+        }
+
+        .tip-grid b {
+            color: #0f3d56;
+        }
+
+        table {
+            width: 100%;
+            max-width: 700px;
+            margin: 25px auto 0;
+            border-collapse: collapse;
+            background: white;
+        }
+
+        th,
+        td {
+            padding: 13px;
+            border: 1px solid #dbe5ea;
+            text-align: left;
+        }
+
+        th {
+            background: #0f3d56;
+            color: white;
+        }
+
+        form {
+            max-width: 600px;
+            margin: 25px auto 0;
+            display: grid;
+            gap: 12px;
+        }
+
+        input,
+        select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #cbd5e1;
+            border-radius: 5px;
+            background: white;
+        }
+
+        form button {
+            font-size: 16px;
+        }
+
+        footer {
+            background: #0b2d3d;
+            color: white;
+            text-align: center;
+            padding: 35px 7%;
+        }
+
+        @media (max-width: 700px) {
+            header {
+                display: block;
+                text-align: center;
+            }
+
+            nav {
+                margin-top: 12px;
+            }
+
+            nav a {
+                margin: 0 7px;
+                font-size: 14px;
+            }
+
+            .hero h2 {
+                font-size: 32px;
+            }
+
+            .destinations,
+            .experiences,
+            .essentials,
+            .tip-grid {
+                grid-template-columns: 1fr;
+            }
+
+            section {
+                padding: 40px 6%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>TRAVEL DESTINY</h1>
+
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#destinations">Destinations</a>
+            <a href="#tips">Travel Tips</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <main>
+
+        <section class="hero" id="home">
+            <div>
+                <h2>Your Journey Starts Here</h2>
+                <p>Discover beautiful places, experience new cultures and create unforgettable memories.</p>
+                <a class="button" href="#destinations">Explore Destinations</a>
+            </div>
+        </section>
+
+        <section id="destinations">
+            <h2>Popular Destinations</h2>
+            <p class="intro">Discover some of the world's most beautiful places.</p>
+
+            <div class="grid destinations">
+
+                <article class="card">
+                    <img src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=700&q=80" alt="Paris">
+                    <h3>Paris</h3>
+                    <p>France</p>
+                    <span>Beautiful architecture, museums and charming streets.</span>
+                </article>
+
+                <article class="card">
+                    <img src="https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?auto=format&fit=crop&w=700&q=80" alt="Istanbul">
+                    <h3>Istanbul</h3>
+                    <p>Türkiye</p>
+                    <span>History, culture and beautiful views across the city.</span>
+                </article>
+
+                <article class="card">
+                    <img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=700&q=80" alt="Dubai">
+                    <h3>Dubai</h3>
+                    <p>UAE</p>
+                    <span>Modern architecture, shopping and entertainment.</span>
+                </article>
+
+                <article class="card">
+                    <img src="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&w=700&q=80" alt="Kyoto">
+                    <h3>Kyoto</h3>
+                    <p>Japan</p>
+                    <span>Temples, gardens and traditional Japanese culture.</span>
+                </article>
+
+                <article class="card">
+                    <img src="https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=700&q=80" alt="Bali">
+                    <h3>Bali</h3>
+                    <p>Indonesia</p>
+                    <span>Beaches, nature and peaceful tropical scenery.</span>
+                </article>
+
+                <article class="card">
+                    <img src="https://images.unsplash.com/photo-1531366936337-7c912a4589a7?auto=format&fit=crop&w=700&q=80" alt="Switzerland">
+                    <h3>Switzerland</h3>
+                    <p>Switzerland</p>
+                    <span>Mountains, lakes and breathtaking landscapes.</span>
+                </article>
+
+            </div>
+        </section>
+
+        <section class="light">
+            <h2>Choose Your Experience</h2>
+
+            <div class="grid experiences">
+                <div class="experience">
+                    <h3>Adventure</h3>
+                    <p>Mountains, hiking and exciting outdoor experiences.</p>
+                </div>
+
+                <div class="experience">
+                    <h3>Relaxation</h3>
+                    <p>Beautiful beaches, peaceful places and relaxing holidays.</p>
+                </div>
+
+                <div class="experience">
+                    <h3>Culture</h3>
+                    <p>Discover history, traditions, art and local life.</p>
+                </div>
+
+                <div class="experience">
+                    <h3>City Life</h3>
+                    <p>Explore modern cities, shopping and famous landmarks.</p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Travel Essentials</h2>
+
+            <div class="grid essentials">
+                <div>Passport</div>
+                <div>Luggage</div>
+                <div>Camera</div>
+                <div>Travel Map</div>
+                <div>Comfortable Clothes</div>
+                <div>Water Bottle</div>
+            </div>
+        </section>
+
+        <section id="tips">
+            <h2>Travel Tips</h2>
+
+            <div class="tip-grid">
+                <p><b>01</b> Plan Ahead — Research your destination before travelling.</p>
+                <p><b>02</b> Pack Smart — Take only the things you really need.</p>
+                <p><b>03</b> Respect Culture — Learn about local customs and traditions.</p>
+                <p><b>04</b> Keep Documents Safe — Protect your important documents.</p>
+            </div>
+        </section>
+
+        <section class="light">
+            <h2>Sample Travel Budget</h2>
+
+            <table>
+                <tr>
+                    <th>Expense</th>
+                    <th>Estimated Cost</th>
+                </tr>
+                <tr>
+                    <td>Transportation</td>
+                    <td>$300</td>
+                </tr>
+                <tr>
+                    <td>Accommodation</td>
+                    <td>$500</td>
+                </tr>
+                <tr>
+                    <td>Food</td>
+                    <td>$200</td>
+                </tr>
+                <tr>
+                    <td>Activities</td>
+                    <td>$150</td>
+                </tr>
+            </table>
+        </section>
+
+        <section id="contact">
+            <h2>Plan Your Trip</h2>
+
+            <form>
+                <input type="text" placeholder="Your Name">
+
+                <select>
+                    <option>Choose Destination</option>
+                    <option>Paris</option>
+                    <option>Istanbul</option>
+                    <option>Dubai</option>
+                    <option>Kyoto</option>
+                    <option>Bali</option>
+                    <option>Switzerland</option>
+                </select>
+
+                <select>
+                    <option>Travel Type</option>
+                    <option>Adventure</option>
+                    <option>Relaxation</option>
+                    <option>Culture</option>
+                    <option>City Life</option>
+                </select>
+
+                <input type="date">
+
+                <button type="submit">Plan My Trip</button>
+            </form>
+        </section>
+
+    </main>
+
+    <footer>
+        <h2>TRAVEL DESTINY</h2>
+        <p>Explore Places • Create Memories • Discover More</p>
+        <p>© 2026 Travel Destiny</p>
+    </footer>
+
+</body>
+</html>
